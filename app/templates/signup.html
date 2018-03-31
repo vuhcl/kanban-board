@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=EB+Garamond" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}" type="text/css">
+    <title>Sign up | Kanban Board</title>
+</head>
+<body>
+    <div class="page">
+        <h1>Sign up and get to work!</h1> 
+        <div class="form">   
+        <form action='/signup' method="POST" class="register-form">
+            <input type="text" name="username"required placeholder="username"/>
+            <input type="password" name="password"required placeholder="password"/>
+            <button>Get Started</button>
+            <p class="message">Already registered? <a href="{{ url_for('login_page')}}">Log in</a></p>
+
+        </form>
+        {% for message in get_flashed_messages() %}
+            <div class=flash>{{ message }}</div>
+        {% endfor %} 
+    </div> 
+    </div> 
+</body>
+</html>

@@ -1,0 +1,92 @@
+.page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+h1{
+  position: relative;
+  z-index: 1;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.column {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    background-color:#FFFFFF;
+    height: 300px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 10;
+    background-color: #f2f2f2;
+}
+
+li button {
+  font-family: "EB Garamond";
+  background: #81D5FE;
+  width: 30.33%;
+  color: #FFFFFF;
+  font-size: 10px;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 50px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+  font-family: "EB Garamond";
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 45px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "EB Garamond";
+  text-transform: uppercase;
+  outline: 0;
+  background: #005BA1;
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+body {
+  background: #81D5FE;
+  font-family: "EB Garamond";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=EB+Garamond" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/index.css') }}" type="text/css">
+    <title>Kanban Board</title>
+</head>
+<body>
+    <p>Logged in as {{user}} (<a href="{{ url_for('log_out')}}">Log out</a>)</p>
+    <h1>Your Kanban Board</h1>
+    <div class="form">
+        <form action="/add" method="post">
+            <input type="text" name="task"required placeholder="Add a new task to do">
+            <button>Add Item</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="column">
+            <h2>Task to do</h2>
+            <ul>
+            {% for task in to_do %}
+                <li>{{ task.task }}</li>
+                <li>
+                    <button><a href="{{ url_for('change_status', id=task.id, status='doing') }}">Mark as doing</a></button>
+                    <button><a href="{{ url_for('change_status', id=task.id, status='done') }}">Mark as done</a></button>
+                    <button><a href="{{ url_for('delete', id=task.id) }}">Delete task</a></button></li>
+            {% endfor %}    
+            </ul>
+        </div>
+        <div class="column">
+           <h2>Task in progress</h2>
+           <ul>
+           {% for task in doing %}
+               <li>{{ task.task }}</li>
+               <li>
+                    <button><a href="{{ url_for('change_status', id=task.id, status='to_do') }}">Mark as to do</a></button>
+                    <button><a href="{{ url_for('change_status', id=task.id, status='done') }}">Mark as done</a></button>
+                    <button><a href="{{ url_for('delete', id=task.id) }}">Delete task</a></button></li>
+            {% endfor %}    
+            </ul>
+        </div>
+        <div class="column">
+        <h2>Task done</h2>
+            <ul>
+            {% for task in done %}
+               <li>{{ task.task }}</li>
+               <li>
+                    <button><a href="{{ url_for('change_status', id=task.id, status='to_do') }}">Mark as to do</a></button>
+                    <button><a href="{{ url_for('change_status', id=task.id, status='doing') }}">Mark as doing</a></button>
+                    <button><a href="{{ url_for('delete', id=task.id) }}">Delete task</a></button></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+        {% for message in get_flashed_messages() %}
+            <div class=flash>{{ message }}</div>
+        {% endfor %}    
+</body>
+</html>
